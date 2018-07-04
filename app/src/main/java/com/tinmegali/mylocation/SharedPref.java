@@ -17,7 +17,7 @@ class SharedPref {
     Context context;
     public static final String MY_PREF="MyPrefs";
     public
-    SharedPref(Context context){
+    SharedPref(Register context){
         this.context=context;
     }
     public void setfirstpriviouslatitude( String firstpriviouslatitude) {
