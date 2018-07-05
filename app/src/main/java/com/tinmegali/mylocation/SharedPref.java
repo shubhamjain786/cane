@@ -11,7 +11,7 @@ public
 class SharedPref {
     private String priviouslatitude,priviouslongitude;
     private String latlang,verypriviouslatitude,verypriviouslongitude,firstpriviouslatitude,firstpriviouslongitude;
-    private String latlati;
+    private String latlati,Imei_no;
     private String Igeo_Id,date;
     private double distance;
     Context context;
@@ -207,7 +207,23 @@ class SharedPref {
         }
         return null;
     }
+    public void setImei_No( String Imei_no) {
+        this.Imei_no = Imei_no;
+        SharedPreferences sharedPreferences = context.getSharedPreferences(MY_PREF, Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        editor.putString("Imei_no", Imei_no);
+        editor.apply();
+    }
 
+    public
+    String getImei_No() {
+        SharedPreferences sharedPreferences = context.getSharedPreferences(MY_PREF, Context.MODE_PRIVATE);
+        Imei_no = sharedPreferences.getString("Imei_no", null);
+        if (Imei_no != null) {
+            return Imei_no;
+        }
+        return null;
+    }
 
 }
 
