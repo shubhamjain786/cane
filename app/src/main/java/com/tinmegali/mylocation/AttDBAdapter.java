@@ -37,6 +37,15 @@ public class AttDBAdapter {
         return count;
     }
 
+    public int DeleteUserLoginData(String imei_no){
+
+        SQLiteDatabase db = attDBHelper.getWritableDatabase();
+        String[] whereArgs={imei_no};
+        int count = db.delete(attDBHelper.TABLE_NAME,attDBHelper.COL_2+" +? ",whereArgs);
+        return count;
+
+    }
+
 
 
 
@@ -252,6 +261,7 @@ public class AttDBAdapter {
 
 
     }
+
 
 
     static class AttDBHelper extends SQLiteOpenHelper{

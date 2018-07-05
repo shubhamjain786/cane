@@ -58,18 +58,12 @@ AttDBAdapter attDBAdapter;
             ActivityCompat.requestPermissions(SplashScreen.this, new String[]{Manifest.permission.ACCESS_FINE_LOCATION,Manifest.permission.READ_EXTERNAL_STORAGE,Manifest.permission.WRITE_EXTERNAL_STORAGE}, 10);
         }
 
-      /*  if ((ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION)
-                == PackageManager.PERMISSION_GRANTED) &&(ActivityCompat.checkSelfPermission(this, Manifest.permission.READ_EXTERNAL_STORAGE)
-                == PackageManager.PERMISSION_GRANTED)&& (ActivityCompat.checkSelfPermission(this, Manifest.permission.WRITE_EXTERNAL_STORAGE)
-                == PackageManager.PERMISSION_GRANTED)) {}*/
 
-        /* New Handler to start the Menu-Activity
-         * and close this Splash-Screen after some seconds.*/
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
                 /* Create an Intent that will start the Menu-Activity. */
-                Intent mainIntent = new Intent(SplashScreen.this, MainActivity.class);
+                Intent mainIntent = new Intent(SplashScreen.this, Register.class);
                 SplashScreen.this.startActivity(mainIntent);
                 SplashScreen.this.finish();
 
