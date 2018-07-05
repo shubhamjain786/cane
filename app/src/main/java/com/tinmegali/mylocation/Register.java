@@ -73,7 +73,8 @@ public class Register extends AppCompatActivity {
         setContentView(R.layout.register);
 
         attDBAdapter = new AttDBAdapter(this);
-        IMEI = sharedPref.getImei_no();
+        IMEI = sharedPref.getImei_No();
+        Log.d("imeiji", "onCreate: "+IMEI);
 
         if(!isConnected(Register.this)) {
 
@@ -232,12 +233,12 @@ public class Register extends AppCompatActivity {
             @Override
             protected Map<String, String> getParams() throws AuthFailureError {
                 Map<String, String> params = new HashMap<>();
-                params.put("Imei_No",IMEI);
-                params.put("Name",name_s.toString().toUpperCase());
-                params.put("Email_Id",email_id_s.toString());
-                params.put("Password",pass_s.toString());
-                params.put("Phone_No",phone_s.toString());
-                params.put("User_Type",user_type);
+                params.put("imei_no",sharedPref.getImei_No());
+                params.put("name",name_s.toString().toUpperCase());
+                params.put("email",stringemail);
+                params.put("password",pass_s.toString());
+                params.put("phone",phone_s.toString());
+
 
                 return  params;
 

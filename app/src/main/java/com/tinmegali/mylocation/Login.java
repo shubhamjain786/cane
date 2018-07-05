@@ -61,13 +61,18 @@ public class Login extends ActionBarActivity {
                 new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        if (username.getText().toString().equals("user") &&
-                                password.getText().toString().equals("pass")) {
+                        if (username.getText().toString().equals(imei_no) &&
+                                password.getText().toString().equals(Password)) {
                             Toast.makeText(Login.this, "User and Password is correct",
                                     Toast.LENGTH_SHORT).show();
-                            Intent intent = new Intent("com.example.programmingknowledge.simpleloginapp.User");
-                            startActivity(intent);
-                        } else {
+                            Intent i = new Intent(Login.this,MainActivity.class);
+                            startActivity(i);
+                        } else if (username.getText().toString().equals("") || password.getText().toString().equals("") || username.getText().toString().equals(null)
+                                || password.getText().toString().equals(null)){
+                          username.setError("Please Fill first");
+                          password.setError(" Please Fill Itr First");
+                        }
+                        else{
                             Toast.makeText(Login.this, "User and Password is not correct",
                                     Toast.LENGTH_SHORT).show();
                         }
@@ -77,11 +82,6 @@ public class Login extends ActionBarActivity {
                 }
 
         );
-    }
-
-    private void Getdata() throws JSONException {
-
-        volley1();
     }
 
     private void volley1() throws JSONException {
@@ -113,6 +113,7 @@ public class Login extends ActionBarActivity {
                                         if(j == 0){
                                             Id=strparts[0].toString().trim();
                                             imei_no = strparts[1].toString().trim();
+                                            username.setText(imei_no);
                                             name=strparts[2].toString();
                                             email = strparts[3].toString();
                                             Password=strparts[4].toString();
