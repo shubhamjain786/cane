@@ -15,6 +15,7 @@ import android.graphics.Bitmap;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Matrix;
+import android.graphics.Point;
 import android.graphics.drawable.Drawable;
 import android.hardware.Camera;
 import android.location.Address;
@@ -140,14 +141,14 @@ public class MainActivity extends AppCompatActivity
         calculatearea=(Button)findViewById(R.id.calculateArea);
         secondbutton=(Button)findViewById(R.id.secondbutton);
         linear = (LinearLayout)findViewById(R.id.linear);
-        double pointY[]={30.507379,30.508477,30.508575,30.507308};
-        double pointX[]={76.795262,76.795267,76.793937,76.793873};
+        double pointY[]={30.507735,30.507388,30.507435,30.507808};
+        double pointX[]={76.794440,76.794347,76.792987,76.793141};
         ArrayList<LatLng> points=new ArrayList<LatLng>();
         for (int i = 0 ; i < pointX.length; i++){
-            points.add(new LatLng(pointX[i],pointY[i]));
+            points.add(new LatLng(pointY[i],pointX[i]));
         }
-
-        LatLng latLng =new LatLng(30.507953,76.794744);
+       //30.508391, 76.793937
+        LatLng latLng =new LatLng(30.508391,76.793937);
 
         boolean point= isPointInPolygon(latLng,points);
         Log.d("point", "onCreate: "+point);
@@ -959,4 +960,6 @@ public class MainActivity extends AppCompatActivity
 
         return x > pX;
     }
+
+
 }
