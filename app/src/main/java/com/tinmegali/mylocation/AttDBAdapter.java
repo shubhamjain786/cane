@@ -63,8 +63,8 @@ public class AttDBAdapter {
 
 
 
-    public long InsertLocalUserMaster( int user_id, String name,int proid, String email_id, String pass, String phone, String imei,
-                                       String curr_date,String curr_time,String user_type, String IsActive, String IsApprove, String IsMode,int time,String minute, String hours, int reports ){
+    public long InsertLocalUserMaster( int Id, String imei_no, String name, String email, String Password,
+                                       String phone, String IsActive,String User_Type){
 
 
         int confuser = DeleteuSERMaster();
@@ -74,13 +74,13 @@ public class AttDBAdapter {
 
             SQLiteDatabase db = attDBHelper.getWritableDatabase();
             ContentValues contentValues = new ContentValues();
-            contentValues.put(attDBHelper.COL_1,user_id);
-            contentValues.put(attDBHelper.COL_2,imei);
-            contentValues.put(attDBHelper.COL_3,proid);
-            contentValues.put(attDBHelper.COL_4,user_type.toString().toUpperCase());
-            contentValues.put(attDBHelper.COL_5,name.toString().toUpperCase());
-            contentValues.put(attDBHelper.COL_6,pass.toString());
-            contentValues.put(attDBHelper.COL_7,email_id.toString());
+            contentValues.put(attDBHelper.COL_1,Id);
+            contentValues.put(attDBHelper.COL_2,imei_no);
+            contentValues.put(attDBHelper.COL_3,User_Type);
+            contentValues.put(attDBHelper.COL_4,name);
+            contentValues.put(attDBHelper.COL_5,Password);
+            contentValues.put(attDBHelper.COL_6,email);
+            contentValues.put(attDBHelper.COL_7,phone);
             contentValues.put(attDBHelper.COL_8, IsActive.toString().toUpperCase());
 
 
@@ -92,6 +92,36 @@ public class AttDBAdapter {
             return confuser;
         }
 
+    }
+
+    public String getLogindata(String imei_no){
+        SQLiteDatabase db = attDBHelper.getWritableDatabase();
+        String[] columns={attDBHelper.COL_1,attDBHelper.COL_2,attDBHelper.COL_3,attDBHelper.COL_4,attDBHelper.COL_5,attDBHelper.COL_6,attDBHelper.COL_7,attDBHelper.COL_8};
+        StringBuffer buffer = new StringBuffer();
+        Cursor cursor = db.query(attDBHelper.TABLE_NAME,columns,attDBHelper.COL_2+" = '"+imei_no+"'",null,null,null,null);
+        while(cursor.moveToNext()){
+            int index1 = cursor.getColumnIndex(attDBHelper.COL_1);
+            int index2 = cursor.getColumnIndex(attDBHelper.COL_2);
+            int index3 = cursor.getColumnIndex(attDBHelper.COL_3);
+            int index4 = cursor.getColumnIndex(attDBHelper.COL_4);
+            int index5 = cursor.getColumnIndex(attDBHelper.COL_5);
+            int index6 = cursor.getColumnIndex(attDBHelper.COL_6);
+            int index7 = cursor.getColumnIndex(attDBHelper.COL_7);
+            int index8 = cursor.getColumnIndex(attDBHelper.COL_8);
+
+            int id = cursor.getInt(index1);
+            String Imei_no = cursor.getString(index2);
+            String User_Type = cursor.getString(index3);
+            String name = cursor.getString(index4);
+            String Password = cursor.getString(index5);
+            String email = cursor.getString(index6);
+            String phone = cursor.getString(index7);
+            String IsActive= cursor.getString(index8);
+
+
+            buffer.append(id+","+Imei_no+","+User_Type+","+name+","+Password+","+email+","+phone+","+IsActive+"");
+        }
+        return buffer.toString();
     }
 
    /* public long InsertLocalMonitor(int Intid, String Imei_No,double current_latitude,double current_longitude, String Date,String Time, String Isstatus,

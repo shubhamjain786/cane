@@ -11,17 +11,13 @@ public
 class SharedPref {
     private String priviouslatitude,priviouslongitude;
     private String latlang,verypriviouslatitude,verypriviouslongitude,firstpriviouslatitude,firstpriviouslongitude;
-    private String latlati;
+    private String latlati,Imei_no;
     private String Igeo_Id,date;
-    String imei_no;
     private double distance;
     Context context;
     public static final String MY_PREF="MyPrefs";
     public
-    SharedPref(MainActivity context){
-        this.context=context;
-    }
-    SharedPref(Register context){
+    SharedPref(Context context){
         this.context=context;
     }
     public void setfirstpriviouslatitude( String firstpriviouslatitude) {
@@ -211,27 +207,23 @@ class SharedPref {
         }
         return null;
     }
-
-    public static synchronized SharedPref getInstance(Context context) {
-        SharedPref mInstance = null;
-        if (mInstance == null) {
-            mInstance = new SharedPref((Register) context);
-        }
-        return mInstance;
+    public void setImei_No( String Imei_no) {
+        this.Imei_no = Imei_no;
+        SharedPreferences sharedPreferences = context.getSharedPreferences(MY_PREF, Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        editor.putString("Imei_no", Imei_no);
+        editor.apply();
     }
 
     public
-    String getImei_no() {
+    String getImei_No() {
         SharedPreferences sharedPreferences = context.getSharedPreferences(MY_PREF, Context.MODE_PRIVATE);
-        imei_no = sharedPreferences.getString("imei_no", null);
-        if (imei_no != null) {
-            return imei_no;
+        Imei_no = sharedPreferences.getString("Imei_no", null);
+        if (Imei_no != null) {
+            return Imei_no;
         }
         return null;
     }
-
-
-
 
 }
 
