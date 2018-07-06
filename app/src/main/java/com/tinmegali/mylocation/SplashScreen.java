@@ -98,7 +98,7 @@ public class SplashScreen extends Activity {
 
                 Log.d("Imei_no", "onCreate: "+IMEI+"iME"+sharedPref.getImei_No());
                 /* Create an Intent that will start the Menu-Activity. */
-                Intent mainIntent = new Intent(SplashScreen.this, Login.class);
+                Intent mainIntent = new Intent(SplashScreen.this, Admin_Main.class);
                startActivity(mainIntent);
                 finish();
 
