@@ -34,6 +34,7 @@
         <activity android:name=".Login" />
         <activity android:name=".Admin_Main" />
         <activity android:name=".Full_Report" />
+        <activity android:name=".AddLocation"/>
         <activity android:name=".Allocate_location"></activity>
     </application>
 
