@@ -4,7 +4,8 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/Geofence_.iml" filepath="$PROJECT_DIR$/Geofence_.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
-      <module fileurl="file://E:\modi\Geofence_\.idea\cane.iml" filepath="E:\modi\Geofence_\.idea\cane.iml" />
+      <module fileurl="file://$PROJECT_DIR$/cane.iml" filepath="$PROJECT_DIR$/cane.iml" />
+      <module fileurl="file://E:/modi/Geofence_/.idea/cane.iml" filepath="E:/modi/Geofence_/.idea/cane.iml" />
     </modules>
   </component>
 </project>

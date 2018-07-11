@@ -95,7 +95,7 @@
                 android:layout_marginTop="8dp"
                 android:text="Register" />
 
-            <TextView
+            <!--<TextView
                 android:id="@+id/textViewLogin"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -103,7 +103,7 @@
                 android:layout_marginTop="8dp"
                 android:text="Already Registered? Login Here"
                 android:textAlignment="center"
-                android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium" />
+                android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium" />-->
         </LinearLayout>
 
 </RelativeLayout>
